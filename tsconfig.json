@@ -1,11 +1,20 @@
 {
-  "compilerOptions": {
+  "compilerOptions": {//编译配置项
+    "baseUrl": "./",//相对目录, （.）表示当前目录
     "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
     ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "img/*": [
+        "src/assets/img/*"
+      ]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,7 +27,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react"
   },
   "include": [
     "src"
