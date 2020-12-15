@@ -1,9 +1,11 @@
 interface iState{
-  name:string;
-  total:number;
+  loginType:boolean;
+  drawType:boolean;
+  loginCount:number;
 }
 let State:iState={
-  name:"lwf",
-  total:0,
+  loginType:false,
+  drawType:true,//是否已抽奖
+  loginCount:1,//登录次数
 }
 export default State;
