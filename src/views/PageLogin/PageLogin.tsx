@@ -120,9 +120,9 @@ class PageLogin extends React.Component<Props>  {
               })
             },
             onCancel:():void =>{
-              // this.props.history.push({
-              //   pathname: '/PageMain'
-              // })
+              this.props.history.push({
+                pathname: '/PageMain'
+              })
             },
           });
         } else {

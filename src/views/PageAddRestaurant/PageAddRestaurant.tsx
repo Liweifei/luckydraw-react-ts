@@ -81,7 +81,8 @@ class PageAddRestaurant extends React.Component<Props, State>  {
         key: 'score',
         dataIndex: 'score',
         render: (score: number) => (
-          <Rate disabled defaultValue={score} />
+          <div>{score}
+          <Rate disabled value={score} /></div>
         ),
       },
       {
@@ -106,7 +107,7 @@ class PageAddRestaurant extends React.Component<Props, State>  {
         <div className="right">
           <div className="btnGroup">
             <Button icon={<PlusOutlined />} onClick={this.handleAdd} type="primary">添加</Button>
-            <Link to="/appMain">
+            <Link to="/PageMain">
               <Button icon={<SmileOutlined />} type="primary">
                 去选饭
               </Button>
@@ -201,6 +202,8 @@ class PageAddRestaurant extends React.Component<Props, State>  {
     console.log(info);
     confirm({
       title: '确认添删除饭店么?',
+      okText: "确认",
+      cancelText: "取消",
       content: '删掉后不可恢复，请三思！',
       onOk: () => {
         let param = {
