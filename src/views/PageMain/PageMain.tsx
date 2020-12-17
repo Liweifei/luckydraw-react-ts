@@ -24,12 +24,12 @@ interface Props {
   loginCount: number;
   drawType: Boolean;
   set_draw_type: (x: boolean) => void;
-  history:any;
+  history: any;
 }
 interface IState {
   list: Array<any>;
 }
-interface Idata{
+interface Idata {
   thisNum: null | number;
   interval: any;
   intervalSpeed: number;
@@ -104,13 +104,13 @@ class PageMain extends React.Component<Props, IState>  {
   componentDidMount(): void {
     this.getList();
   }
-  getList= (): void => {
+  getList = (): void => {
     //获取饭店列表
     axios
       .get("/restaurant/list")
       .then(response => {
         this.setState({
-          list: response.data.data.map((item:any ):void=> {
+          list: response.data.data.map((item: any): void => {
             item.selected = false;
             return item;
           })
@@ -120,12 +120,12 @@ class PageMain extends React.Component<Props, IState>  {
         console.log(error);
       });
   }
-  draw= (): void =>{
+  draw = (): void => {
     if (this.state.list.length < 1) {
       confirm({
         title: '提示',
         content: '未录数据?是否前往录入饭店数据？',
-        onOk:():void=> {
+        onOk: (): void => {
           this.props.history.push({
             path: "/appAdditem"
           });
@@ -157,7 +157,7 @@ class PageMain extends React.Component<Props, IState>  {
     }
     this.data.interval = setInterval(this.intervalF, this.data.intervalSpeed)
   }
-  intervalF= (): void => {
+  intervalF = (): void => {
     this.forceUpdate();
     clearInterval(this.data.interval);
     if (this.data.intervalNum === 100) {
@@ -176,7 +176,7 @@ class PageMain extends React.Component<Props, IState>  {
     this.data.thisNum = this.data.canSelectList[Math.round(Math.random() * this.data.allLength)];
     this.data.interval = setInterval(this.intervalF, this.data.intervalSpeed);
   }
-  drawThisData= (): void => {
+  drawThisData = (): void => {
     //推送数据到远程
     axios
       .post("/restaurant/draw", {
