@@ -81,8 +81,7 @@ class PageAddRestaurant extends React.Component<Props, State>  {
         key: 'score',
         dataIndex: 'score',
         render: (score: number) => (
-          <div>{score}
-          <Rate disabled value={score} /></div>
+          <Rate disabled value={score} />
         ),
       },
       {
